@@ -33,9 +33,9 @@ fastapi_nextjs/
 cd backend
 
 # 가상환경 생성 (선택사항)
-python -m venv venv
-venv\Scripts\activate  # Windows
-# source venv/bin/activate  # macOS/Linux
+python -m venv .venv
+.venv\Scripts\activate  # Windows
+# source .venv/bin/activate  # macOS/Linux
 
 # 의존성 설치
 pip install -r requirements.txt
