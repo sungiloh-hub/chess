@@ -1,0 +1,11 @@
+# .gitignore - Python & Node.js
+__pycache__/
+*.pyc
+.env
+.venv/
+venv/
+node_modules/
+.next/
+out/
+.vercel/
+*.log
