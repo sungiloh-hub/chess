@@ -15,7 +15,12 @@ class Settings(BaseSettings):
         origins = [
             "http://localhost:3000",
             "http://127.0.0.1:3000",
+            "https://chess-steel-seven.vercel.app",
         ]
+        # 환경변수 FRONTEND_URL도 추가
+        frontend = os.getenv("FRONTEND_URL", "")
+        if frontend and frontend not in origins:
+            origins.append(frontend)
         if self.frontend_url and self.frontend_url not in origins:
             origins.append(self.frontend_url)
         return origins
