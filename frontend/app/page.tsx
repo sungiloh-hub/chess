@@ -169,10 +169,16 @@ export default function Home() {
       <p className={styles.subtitle}>당신(⬜백) vs AI(⬛흑) — 수를 제안받으며 체스를 배워보세요</p>
 
       <div className={styles.layout}>
-        {/* 체스 보드 */}
-        <div className={styles.boardWrapper}>
-          <div className={styles.board}>
-            {RANKS.map((rank) =>
+        {/* 체스 보드 영역 */}
+        <div className={styles.boardArea}>
+          <div className={styles.rankLabels}>
+            {RANKS.map((r) => (
+              <div key={r} className={styles.rankLabel}>{r}</div>
+            ))}
+          </div>
+          <div className={styles.boardWrapper}>
+            <div className={styles.board}>
+              {RANKS.map((rank) =>
               FILES.map((file) => {
                 const sq = file + rank;
                 const piece = boardState?.squares[sq];
@@ -198,9 +204,10 @@ export default function Home() {
                 );
               })
             )}
-          </div>
-          <div className={styles.fileLabels}>
-            {FILES.map((f) => <span key={f}>{f}</span>)}
+            </div>
+            <div className={styles.fileLabels}>
+              {FILES.map((f) => <span key={f}>{f}</span>)}
+            </div>
           </div>
         </div>
 

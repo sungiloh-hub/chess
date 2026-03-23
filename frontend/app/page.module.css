@@ -33,9 +33,30 @@
   align-items: flex-start;
 }
 
-/* 체스 보드 */
-.boardWrapper {
+/* 체스 보드 영역 */
+.boardArea {
+  display: flex;
+  gap: 8px;
   flex-shrink: 0;
+}
+
+.rankLabels {
+  display: grid;
+  grid-template-rows: repeat(8, 70px);
+  align-items: center;
+  margin-top: 3px; /* 보드 상단 테두리 두께(3px)와 라인 맞춤 */
+}
+
+.rankLabel {
+  color: var(--text-dim);
+  font-size: 0.8rem;
+  text-align: right;
+  padding-right: 4px;
+}
+
+.boardWrapper {
+  display: flex;
+  flex-direction: column;
 }
 
 .board {
