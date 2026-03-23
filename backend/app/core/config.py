@@ -1,13 +1,12 @@
 from pydantic_settings import BaseSettings
 from functools import lru_cache
-import os
 
 
 class Settings(BaseSettings):
     app_name: str = "Chess Tutor API"
     app_version: str = "0.1.0"
-    debug: bool = os.getenv("DEBUG", "true").lower() == "true"
-    frontend_url: str = os.getenv("FRONTEND_URL", "http://localhost:3000")
+    debug: bool = True
+    frontend_url: str = "http://localhost:3000"
     api_prefix: str = "/api"
 
     @property
@@ -17,10 +16,6 @@ class Settings(BaseSettings):
             "http://127.0.0.1:3000",
             "https://chess-steel-seven.vercel.app",
         ]
-        # 환경변수 FRONTEND_URL도 추가
-        frontend = os.getenv("FRONTEND_URL", "")
-        if frontend and frontend not in origins:
-            origins.append(frontend)
         if self.frontend_url and self.frontend_url not in origins:
             origins.append(self.frontend_url)
         return origins
